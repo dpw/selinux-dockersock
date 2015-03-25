@@ -4,7 +4,7 @@ A nice trick with docker is to mount the docker daemon's unix socket
 into a container, so that container can act as a client to the docker
 daemon it is running under, e.g.:
 
-   docker run ... -v /var/run/docker.sock:/var/run/docker.sock
+    docker run ... -v /var/run/docker.sock:/var/run/docker.sock
 
 But this doesn't work with Fedora or RHEL as the host because of their
 use of SELinux to harden containers.  When the docker client attempts
@@ -19,7 +19,7 @@ allowing containers to access the socket.
 Make sure you have the prerequisite SELinux utilities by doing (on
 RHEL/CentOS/Fedora/etc.):
 
-   yum install policycoreutils policycoreutils-python checkpolicy
+    yum install policycoreutils policycoreutils-python checkpolicy
 
 Then as root, just do
 
