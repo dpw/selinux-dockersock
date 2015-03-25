@@ -16,14 +16,20 @@ allowing containers to access the socket.
 
 ## Usage
 
-As root, just do
+Make sure you have the prerequisite SELinux utilities by doing (on
+RHEL/CentOS/Fedora/etc.):
+
+   yum install policycoreutils policycoreutils-python checkpolicy
+
+Then as root, just do
 
     make
 
-Or if you are paranoid, you can do
+Or if you are paranoid, without being root you can do
 
     make dockersock.pp
 
-to build the SELinux policy module package, and then load it with
+to build the SELinux policy module package, and then load it as root
+with
 
-    selinux -i dockersock.pp
+    semodule -i dockersock.pp
