@@ -2,6 +2,10 @@
 load: dockersock.pp
 	semodule -i $^
 
+.PHONY: unload
+unload:
+	semodule -r dockersock
+
 dockersock.mod: dockersock.te
 	checkmodule -M -m $< -o $@
 

@@ -33,3 +33,7 @@ to build the SELinux policy module package, and then load it as root
 with
 
     semodule -i dockersock.pp
+
+Should you ever wish to remove the module, do
+
+    semodule -r dockersock
